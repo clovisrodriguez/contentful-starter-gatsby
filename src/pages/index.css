@@ -31,6 +31,7 @@ html, body, div, .root {
 .root {
     display: flex;
     align-items: center;
+    margin: 1.4em;
 }
 
 .root div {
@@ -38,9 +39,10 @@ html, body, div, .root {
 }
 
 .root img {
+    width: 100%;
+    max-width: 450px;
+    min-width: 100px;
     margin: 0 auto;
-    height: 70px;
-    width: auto;
 }
 
 * {
