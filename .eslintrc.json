@@ -1,0 +1,24 @@
+{
+  "extends": "gatsby-standard",
+  "rules": {
+    "no-unsafe-finally": "off",
+    "no-return-await": "off",
+    "no-unused-vars": "warn",
+    "react/display-name": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["src", "./src"],
+          ["pages", "./src/pages"],
+          ["components", "./src/components"],
+          ["images", "./src/images"],
+          ["styles", "./src/styles"],
+          ["utils", "./src/utils"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
+}
