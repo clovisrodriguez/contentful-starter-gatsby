@@ -1,22 +1,159 @@
+/**
+ * Dependencies
+ */
 import React from 'react'
-import Logo from '../images/white_logo.png'
+import { graphql } from 'gatsby'
+import _ from 'lodash'
+import styled from 'styled-components'
+import { Typography } from '@material-ui/core'
 
-export default function Home() {
+/**
+ * Components
+ */
+import Layout from 'components/Layout'
+import Hero from 'components/Hero'
+import Services from 'src/components/Services'
+import Team from 'components/Team'
+
+const Description = styled.div`
+  ${({ theme }) => `
+  && {
+    color: white;
+    display: flex;
+    width: 100%;
+    background: ${theme.palette.primary.main};
+    padding: ${theme.spacing(8, 8, 16, 8)};
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    .paragraph {
+      width: 60%;
+      margin-right: 7%;
+    }
+    .title {
+      vertical-align: center;
+      text-align: right;
+    }
+    ${theme.breakpoints.down('sm')} {
+      padding: ${theme.spacing(8, 4)};
+      flex-direction: column-reverse;
+      .paragraph {
+        width: 100%;
+        margin: 0;
+        margin-top: 3em;
+      }
+  `}
+  }
+`
+
+const Home = ({ data }) => {
+  const homePage = _.get(data, 'allContentfulHomePage.edges[0].node')
+  // OFS: reassign capacity for this section
+  // const facts = _.get(data, 'allContentfulHomePage.edges[0].node')
+  const services = _.get(data, 'allContentfulService.edges')
+  const associates = _.get(data, 'allContentfulAssociate.edges')
   return (
-    <div className="root">
-      <head>
-        <title>Enciso Montero</title>
-      </head>
-      <div>
-        <img src={Logo} />
-        <h3>Muy pronto, Nuestro negocio es crecer tu negocio</h3>
-        <p>
-          para más información escribe a{' '}
-          <a href="mailto: contacto@encisomontero.com">
-            contacto@encisomontero.com
-          </a>
-        </p>
-      </div>
-    </div>
+    <Layout>
+      <Hero {...{ content: homePage }} />
+      <Description>
+        <Typography
+          variant="body1"
+          className="paragraph"
+          dangerouslySetInnerHTML={{
+            __html: homePage.bodyDescription.childMarkdownRemark.html,
+          }}
+        ></Typography>
+        <Typography variant="h2" className="title">
+          {homePage.titleDescriptionSection}
+        </Typography>
+      </Description>
+      <Services {...{ services, title: homePage.serviceTitle }} />
+      <Team {...{ associates, homePage }} />
+    </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulHomePage {
+      edges {
+        node {
+          heroBanner {
+            fluid(maxWidth: 1920, quality: 100) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          heroText
+          subtitle
+          factTitle
+          titleDescriptionSection
+          serviceTitle
+          teamTitle
+          teamDescription {
+            childMarkdownRemark {
+              html
+            }
+          }
+          bodyDescription {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    allContentfulService {
+      edges {
+        node {
+          title
+          subtitle
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    allContentfulFact {
+      edges {
+        node {
+          title
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          icon
+        }
+      }
+    }
+    allContentfulAssociate {
+      edges {
+        node {
+          position
+          linkedIn
+          lastName
+          firstName
+          profilePick {
+            fixed(width: 300) {
+              ...GatsbyContentfulFixed
+            }
+          }
+          bigPicture {
+            fluid(maxWidth: 600) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          biography {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default Home

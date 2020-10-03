@@ -1,1 +1,1 @@
-import './src/pages/index.css'
+import 'styles/fonts.css'

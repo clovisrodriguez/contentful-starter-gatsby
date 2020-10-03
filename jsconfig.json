@@ -7,7 +7,7 @@
       "images/*": ["src/images/*"],
       "pages/*": ["src/pages/*"],
       "style/*": ["src/style/*"],
-      "utils/*": ["src/utils/*"],
+      "utils/*": ["src/utils/*"]
     }
   }
 }
