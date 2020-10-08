@@ -15,9 +15,17 @@ const Container = styled.div`
     display: flex;
     flex: 1 1;
     align-content: center;
+    flex-direction: row;
+    ${theme.breakpoints.down('sm')} {
+      flex-direction: column-reverse;
+      flex: 1;
+    }
     .textDescription {
       width: 50%;
-      padding: ${theme.spacing(4)}px;
+      padding: ${theme.spacing(6)}px;
+      ${theme.breakpoints.down('sm')} {
+        width: 100%;
+      }
       h4 {
         margin-bottom: 1em;
       }
@@ -28,6 +36,9 @@ const Container = styled.div`
         z-index: 2;
         width: 100%;
         background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
+      }
+      ${theme.breakpoints.down('sm')} {
+        width: 100%;
       }
       width: 50%;
       background: none;
@@ -64,7 +75,7 @@ export default function Team({ associates, homePage }) {
           renderIndicator={false}
           infiniteLoop
           centerMode
-          centerSlidePercentage={60}
+          centerSlidePercentage={100}
         >
           {associates.map(({ node: associate }) => (
             <div key={associate.firstName}>

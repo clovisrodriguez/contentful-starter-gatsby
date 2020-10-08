@@ -5,6 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Modal, Typography, Paper } from '@material-ui/core'
 import Image from 'gatsby-image'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
 const Container = styled(Paper)`
   ${({ theme }) => `
@@ -16,14 +17,42 @@ const Container = styled(Paper)`
     transform: translate(-50%, 0);
     margin-top: 10vh;
     display: flex;
+    height: 36.4em;
+    width: 52em;
+    ${theme.breakpoints.down('sm')} {
+      overflow-y: scroll;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 0;
+      height: 100%;
+    }
+    .profilePick {
+      ${theme.breakpoints.down('sm')} {
+        overflow: hidden;
+        height: 40%;
+      }
+    }
     .content {
-      width: 35em;
-      height: 37.6em;
+      ${theme.breakpoints.down('sm')} {
+        width: 100%;
+      }
+      width: 26em;
     }
     .bio {
       padding: 2em;
       text-align: center;
-      margin-bottom: 2em;
+      ${theme.breakpoints.down('sm')} {
+        padding: 1em;
+        height: 60%;
+      }
+      .social {
+        padding: 1em;
+        * {
+          cursor: pointer;
+          color: ${theme.palette.primary.main};
+          font-size: 1.5em;
+        }
+      }
     }
     .paragraph {
       margin-top: 2em;
@@ -48,6 +77,7 @@ export default function TeamCardModal({
     bigPicture,
     position,
     biography,
+    linkedIn,
   } = activeAssociate
   return (
     <Modal
@@ -72,6 +102,11 @@ export default function TeamCardModal({
                 __html: biography.childMarkdownRemark.html,
               }}
             ></Typography>
+            <div className="social">
+              <a target="blank" href={`https://linkedin.com/in/${linkedIn}`}>
+                <LinkedInIcon />
+              </a>
+            </div>
           </div>
         </Container>
       )}

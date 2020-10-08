@@ -14,6 +14,7 @@ import Layout from 'components/Layout'
 import Hero from 'components/Hero'
 import Services from 'src/components/Services'
 import Team from 'components/Team'
+import Calendar from 'components/Calendar'
 
 const Description = styled.div`
   ${({ theme }) => `
@@ -69,6 +70,7 @@ const Home = ({ data }) => {
       </Description>
       <Services {...{ services, title: homePage.serviceTitle }} />
       <Team {...{ associates, homePage }} />
+      <Calendar />
     </Layout>
   )
 }
@@ -106,7 +108,6 @@ export const query = graphql`
       edges {
         node {
           title
-          subtitle
           description {
             childMarkdownRemark {
               html

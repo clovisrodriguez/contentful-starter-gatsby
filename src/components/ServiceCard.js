@@ -17,7 +17,7 @@ const CardContainer = styled.div`
       color: white;
     };
     .flipCard {
-        height: 18em;
+        height: 40em;
         display flex;
         flex-direction: column;
         justify-content: space-around;

@@ -76,14 +76,16 @@ export default function Hero({ content: { heroBanner, heroText, subtitle } }) {
         <Typography variant="body1" align="left">
           {subtitle}
         </Typography>
-        <Button
-          className="button"
-          variant="contained"
-          color="primary"
-          disableElevation
-        >
-          Consultar
-        </Button>
+        <a href="https://meetings.hubspot.com/clovis1992">
+          <Button
+            className="button"
+            variant="contained"
+            color="primary"
+            disableElevation
+          >
+            Consultar
+          </Button>
+        </a>
       </TextContainer>
     </Container>
   )
