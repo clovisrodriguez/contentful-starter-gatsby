@@ -4,7 +4,6 @@
 import React from 'react'
 import { Box, Typography, Button } from '@material-ui/core'
 import styled from 'styled-components'
-import ParticlesBg from 'particles-bg'
 
 const Container = styled(Box)`
   ${({ theme }) => `
@@ -64,10 +63,17 @@ const TextContainer = styled.div`
   `}
 `
 
-export default function Hero({ content: { heroBanner, heroText, subtitle } }) {
+export default function Hero({ content: { heroText, subtitle } }) {
+  const RenderParticles = () => {
+    if (typeof window !== 'undefined') {
+      const ParticlesBg = require('particles-bg').default
+      return <ParticlesBg color={'#45a8b9'} type="cobweb" num={50} />
+    }
+    return null
+  }
   return (
     <Container>
-      <ParticlesBg color={'#45a8b9'} type="cobweb" num={50} />
+      <RenderParticles />
       <div className="white-background" />
       <TextContainer>
         <Typography variant="h1" align="left" className="title" color="primary">
