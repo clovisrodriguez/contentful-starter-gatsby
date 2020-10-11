@@ -100,9 +100,9 @@ export default function NavBar() {
           >
             {config.navigation.map((route) => (
               <MenuItem onClick={handleClose} key={route.name}>
-                <Link key={route.name} to={route.slug}>
+                <a key={route.name} href={route.slug}>
                   {route.name}
-                </Link>
+                </a>
               </MenuItem>
             ))}
           </Menu>

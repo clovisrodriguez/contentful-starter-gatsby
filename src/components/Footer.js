@@ -10,25 +10,23 @@ const Container = styled(BottomNavigation)`
   && {
     background: ${theme.palette.primary.main};
     color: white;
+    height: auto;
     .toolBar {
       padding: ${theme.spacing(2)}px;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       p {
-        margin: 0 4em;
+        margin: 0.7em 4em;
       }
-    }
-    .logo {
-      height: 2em;
-      width: auto;
     }
     ${theme.breakpoints.down('sm')} {
-      .toolbar {
+      .toolBar {
         justify-content: space-between;
+        flex-direction: column-reverse;
       }
-      .logo {
-        height: 1.6em;
+      p {
+        margin: 0;
       }
     }
   }

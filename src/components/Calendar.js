@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Typography, Button } from '@material-ui/core'
 
@@ -14,6 +14,9 @@ const Container = styled.div`
     justify-items: center;
     align-items: center;
     padding-top: 20vh;
+    ${theme.breakpoints.down('sm')} {
+      text-align: center;
+    }
     .button {
       margin: 6em;
       color: white;
@@ -25,16 +28,18 @@ const Container = styled.div`
 export default function () {
   return (
     <Container>
-      <Typography variant="h2" color="primary">
-        Empecemos a trabajar juntos
-      </Typography>
+      <a name="calendar">
+        <Typography variant="h2" color="primary">
+          Empecemos a trabajar juntos
+        </Typography>
+      </a>
       <a href="https://meetings.hubspot.com/clovis1992">
-          <Button
-            className="button"
-            variant="contained"
-            color="primary"
-            disableElevation
-          >
+        <Button
+          className="button"
+          variant="contained"
+          color="primary"
+          disableElevation
+        >
           Consultar
         </Button>
       </a>

@@ -57,9 +57,11 @@ export default function Team({ associates, homePage }) {
   return (
     <Container>
       <div className="textDescription">
-        <Typography variant="h4" color="primary">
-          {title}
-        </Typography>
+        <a name="team">
+          <Typography variant="h4" color="primary">
+            {title}
+          </Typography>
+        </a>
         <Typography
           variant="body1"
           dangerouslySetInnerHTML={{

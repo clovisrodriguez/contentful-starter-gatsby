@@ -65,11 +65,11 @@ const TextContainer = styled.div`
 
 export default function Hero({ content: { heroText, subtitle } }) {
   const RenderParticles = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') {
       const ParticlesBg = require('particles-bg').default
       return <ParticlesBg color={'#45a8b9'} type="cobweb" num={50} />
     }
-    return null
+    return <div></div>
   }
   return (
     <Container>

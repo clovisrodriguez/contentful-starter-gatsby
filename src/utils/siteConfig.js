@@ -5,7 +5,7 @@ module.exports = {
   siteDescription: 'blaksl jsñajkñsajkañ sksñajañ js dñdji apda jspajsñja pa',
   siteUrl: 'https://www.enciscomontero.com',
   navigation: [
-    { name: 'Inicio', slug: '/' },
-    { name: 'Equipo', slug: 'team' },
+    { name: 'Equipo', slug: '#team', anchorPoint: true },
+    { name: 'Agendar cita', slug: '#calendar', anchorPoint: true },
   ],
 }
