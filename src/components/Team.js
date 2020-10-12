@@ -13,6 +13,7 @@ const Container = styled.div`
   ${({ theme }) => `
   && {
     display: flex;
+display:-webkit-flex;
     flex: 1 1;
     align-content: center;
     flex-direction: row;
@@ -57,11 +58,9 @@ export default function Team({ associates, homePage }) {
   return (
     <Container>
       <div className="textDescription">
-        <a name="team">
           <Typography variant="h4" color="primary">
             {title}
           </Typography>
-        </a>
         <Typography
           variant="body1"
           dangerouslySetInnerHTML={{

@@ -8,9 +8,10 @@ import styled from 'styled-components'
 const Container = styled(Box)`
   ${({ theme }) => `
     && {
-    display: flex;
+    width: 100%;
     text-align: center;
     height: 90vh;
+    display: flex;
     align-content: center;
     ${theme.breakpoints.down('sm')} {
       height: 90vh;
@@ -26,7 +27,7 @@ const Container = styled(Box)`
       background: rgb(255, 255, 255);
       background: linear-gradient(
         0deg,
-        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.5) 0%,
         rgba(255, 255, 255, 0) 100%
       );
     }
@@ -40,6 +41,7 @@ const TextContainer = styled.div`
   ${({ theme }) => `
   padding: ${theme.spacing(0, 10)};
   display: flex;
+display:-webkit-flex;
   position: absolute;
   flex-direction: column;
   max-width: 50em;
@@ -82,7 +84,7 @@ export default function Hero({ content: { heroText, subtitle } }) {
         <Typography variant="body1" align="left">
           {subtitle}
         </Typography>
-        <a href="https://meetings.hubspot.com/clovis1992">
+        {/* <a href="https://meetings.hubspot.com/clovis1992">
           <Button
             className="button"
             variant="contained"
@@ -91,7 +93,7 @@ export default function Hero({ content: { heroText, subtitle } }) {
           >
             Consultar
           </Button>
-        </a>
+        </a> */}
       </TextContainer>
     </Container>
   )

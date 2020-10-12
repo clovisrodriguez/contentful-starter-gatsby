@@ -28,6 +28,7 @@ const Container = styled(AppBar)`
     background: rgba(255, 255, 255, 0.7);
     .toolBar {
       display: flex;
+display:-webkit-flex;
       flex-direction: row;
       justify-content: space-around;
 
@@ -50,6 +51,7 @@ const Container = styled(AppBar)`
 
 const Links = styled(Box)`
   display: flex;
+display:-webkit-flex;
   flex-direction: row;
   align-items: center;
   a {
@@ -73,7 +75,7 @@ export default function NavBar() {
     <Container position="absolute" color={'transparent'}>
       <Toolbar className="toolBar">
         <img src={Logo} className="logo" />
-        <Hidden smDown>
+        {/* <Hidden smDown>
           <Links>
             {config.navigation.map((route) => (
               <Link key={route.name} to={route.slug}>
@@ -106,7 +108,7 @@ export default function NavBar() {
               </MenuItem>
             ))}
           </Menu>
-        </Hidden>
+        </Hidden> */}
       </Toolbar>
     </Container>
   )

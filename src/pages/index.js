@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-import React from 'react'
+import React, { useRef } from 'react'
 import { graphql } from 'gatsby'
 import _ from 'lodash'
 import styled from 'styled-components'
@@ -21,6 +21,7 @@ const Description = styled.div`
   && {
     color: white;
     display: flex;
+display:-webkit-flex;
     width: 100%;
     background: ${theme.palette.primary.main};
     padding: ${theme.spacing(8, 8, 16, 8)};
@@ -53,8 +54,9 @@ const Home = ({ data }) => {
   // const facts = _.get(data, 'allContentfulHomePage.edges[0].node')
   const services = _.get(data, 'allContentfulService.edges')
   const associates = _.get(data, 'allContentfulAssociate.edges')
+  const teamRef = useRef()
   return (
-    <Layout>
+    <Layout {...{teamRef}}>
       <Hero {...{ content: homePage }} />
       <Description>
         <Typography
@@ -69,7 +71,7 @@ const Home = ({ data }) => {
         </Typography>
       </Description>
       <Services {...{ services, title: homePage.serviceTitle }} />
-      <Team {...{ associates, homePage }} />
+      <Team {...{ associates, homePage }} ref={teamRef} />
       <Calendar />
     </Layout>
   )

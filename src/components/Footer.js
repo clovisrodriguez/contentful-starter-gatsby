@@ -14,6 +14,7 @@ const Container = styled(BottomNavigation)`
     .toolBar {
       padding: ${theme.spacing(2)}px;
       display: flex;
+display:-webkit-flex;
       flex-direction: row;
       justify-content: space-around;
       p {
@@ -35,6 +36,7 @@ const Container = styled(BottomNavigation)`
 
 const Links = styled(Box)`
   display: flex;
+display:-webkit-flex;
   flex-direction: column;
   align-items: center;
   a {
