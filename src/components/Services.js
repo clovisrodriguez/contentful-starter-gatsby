@@ -18,6 +18,7 @@ const Container = styled.div`
       .cardContainer {
         margin-top: ${theme.spacing(6)}px;
         display: flex;
+display:-webkit-flex;
         flex-wrap: wrap;
       }
   }

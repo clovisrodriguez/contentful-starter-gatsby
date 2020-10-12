@@ -10,6 +10,7 @@ const Card = styled.div`
   ${({ theme }) => `
   margin-top: ${theme.spacing(2)}px;
 display: flex;
+display:-webkit-flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
@@ -20,6 +21,7 @@ justify-content: center;
   height: 18em;
   overflow: hidden;
   display: flex;
+display:-webkit-flex;
   align-items: center;
   justify-content: center;
   padding-top: ${theme.spacing(2)}px;

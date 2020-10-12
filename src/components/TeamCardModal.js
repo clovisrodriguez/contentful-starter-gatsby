@@ -3,9 +3,10 @@
  */
 import React from 'react'
 import styled from 'styled-components'
-import { Modal, Typography, Paper } from '@material-ui/core'
+import { Modal, Typography, Paper, Button } from '@material-ui/core'
 import Image from 'gatsby-image'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import CloseIcon from '@material-ui/icons/Close'
 
 const Container = styled(Paper)`
   ${({ theme }) => `
@@ -17,6 +18,7 @@ const Container = styled(Paper)`
     transform: translate(-50%, 0);
     margin-top: 10vh;
     display: flex;
+display:-webkit-flex;
     height: 36.4em;
     width: 52em;
     ${theme.breakpoints.down('sm')} {
@@ -30,6 +32,15 @@ const Container = styled(Paper)`
       ${theme.breakpoints.down('sm')} {
         overflow: hidden;
         height: 40%;
+      }
+      button {
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+        color: white;
+        border-radius: 50%;
+        margin: 1em;
+        background: rgba(0,0,0,0.4);
       }
     }
     .content {
@@ -88,6 +99,9 @@ export default function TeamCardModal({
       {firstName && (
         <Container>
           <div className="content profilePick">
+            <Button onClick={() => setShowModal(false)}>
+              <CloseIcon />
+            </Button>
             <Image fluid={bigPicture.fluid} />
           </div>
           <div className="content bio">

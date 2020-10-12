@@ -19,7 +19,7 @@ import Footer from './Footer'
  */
 import theme from 'styles/theme'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, teamRef }) => (
   <div className="siteRoot" id="outer-container">
     <Helmet>
       <title>{config.siteTitle}</title>
@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
     </Helmet>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <NavBar />
+        <NavBar {...{teamRef}} />
         {children}
         <Footer />
       </ThemeProvider>

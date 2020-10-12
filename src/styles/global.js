@@ -55,12 +55,13 @@ const GlobalStyle = createGlobalStyle`
     outline: 1px solid slategrey;
   }
   .siteRoot {
-    height: 100vh;
     display: flex;
+display:-webkit-flex;
     flex-direction: column;
   }
   .siteContent {
     display: flex;
+display:-webkit-flex;
     flex-direction: column;
     flex: 1 0 auto;
   }
