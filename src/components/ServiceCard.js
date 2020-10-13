@@ -12,12 +12,16 @@ const CardContainer = styled.div`
       flex: 1 1 30em;
       padding: ${theme.spacing(3)}px;
       background: ${
-        (i + 1) % 2 ? theme.palette.primary.main : theme.palette.primary.dark
+        i % 3 === 0
+          ? theme.palette.primary.main
+          : i % 3 === 1
+          ? theme.palette.primary.dark
+          : theme.palette.primary.darkest
       };
       color: white;
     };
     .flipCard {
-        height: 40em;
+        height: 30em;
         display flex;
         flex-direction: column;
         justify-content: space-around;

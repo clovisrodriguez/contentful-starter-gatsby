@@ -15,9 +15,11 @@ const Container = styled.div`
   && {
     padding: ${theme.spacing(4)}px;
     display: flex;
-display:-webkit-flex;
+    display:-webkit-flex;
     flex-direction: column;
     justify-items: center;
+    background: ${theme.palette.primary.darkest};
+    color: white;
     align-items: center;
     padding-top: 20vh;
     .meetings-iframe-container { 
@@ -42,11 +44,11 @@ export default function () {
   }, [])
   return (
     <Container>
-      <Typography variant="h2" color="primary">
+      <Typography variant="h2" color="inherit">
         Empecemos a trabajar juntos
       </Typography>
       <div
-        class="meetings-iframe-container"
+        className="meetings-iframe-container"
         data-src="https://meetings.hubspot.com/contacto448?embed=true"
       ></div>
     </Container>

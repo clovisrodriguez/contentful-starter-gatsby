@@ -55,6 +55,20 @@ export default function Team({ associates, homePage }) {
   const { teamTitle: title, teamDescription: description } = homePage
   const [showModal, setShowModal] = useState(false)
   const [activeAssociate, setActiveAssociate] = useState({})
+
+
+
+  const changeModalState = () => {
+    if (!showModal) {
+      document.body.style.top = `-${window.scrollY}px`
+      document.body.style.position = 'fixed'
+      console.log(window.scrollY)
+    } else {
+      document.body.style.position = ''
+      document.body.style.top = ''
+    }
+    setShowModal(!showModal)
+  }
   return (
     <Container>
       <div className="textDescription">
@@ -69,7 +83,7 @@ export default function Team({ associates, homePage }) {
         ></Typography>
       </div>
       <div className="carouselContainer">
-        <TeamCardModal {...{ activeAssociate, showModal, setShowModal }} />
+        <TeamCardModal {...{ activeAssociate, showModal, changeModalState }} />
         <Carousel
           autoPlay
           showStatus={false}
@@ -80,7 +94,9 @@ export default function Team({ associates, homePage }) {
         >
           {associates.map(({ node: associate }) => (
             <div key={associate.firstName}>
-              <TeamCard {...{ associate, setShowModal, setActiveAssociate }} />
+              <TeamCard
+                {...{ associate, changeModalState, setActiveAssociate }}
+              />
             </div>
           ))}
         </Carousel>

@@ -35,13 +35,13 @@ button {
 
 export default function TeamCard({
   associate,
-  setShowModal,
+  changeModalState,
   setActiveAssociate,
 }) {
   const handleClick = (e) => {
     e.preventDefault()
     setActiveAssociate(associate)
-    setShowModal(true)
+    changeModalState(true)
   }
   return (
     <Card>

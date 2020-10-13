@@ -10,6 +10,7 @@ import CloseIcon from '@material-ui/icons/Close'
 
 const Container = styled(Paper)`
   ${({ theme }) => `
+  && {
     border: none;
     position: absolute;
     margin: auto;
@@ -23,15 +24,15 @@ display:-webkit-flex;
     width: 52em;
     ${theme.breakpoints.down('sm')} {
       overflow-y: scroll;
-      flex-direction: column;
       width: 100%;
       margin-top: 0;
       height: 100%;
+      display: inline;
     }
     .profilePick {
       ${theme.breakpoints.down('sm')} {
         overflow: hidden;
-        height: 40%;
+        height: auto;
       }
       button {
         position: absolute;
@@ -54,7 +55,6 @@ display:-webkit-flex;
       text-align: center;
       ${theme.breakpoints.down('sm')} {
         padding: 1em;
-        height: 60%;
       }
       .social {
         padding: 1em;
@@ -74,13 +74,14 @@ display:-webkit-flex;
         margin-top: 1em;
       }
     }
+  }
   `}
 `
 
 export default function TeamCardModal({
   activeAssociate,
   showModal,
-  setShowModal,
+  changeModalState,
 }) {
   const {
     firstName,
@@ -93,13 +94,13 @@ export default function TeamCardModal({
   return (
     <Modal
       open={showModal}
-      onClose={() => setShowModal(false)}
+      onClose={() => changeModalState()}
       disableScrollLock
     >
       {firstName && (
         <Container>
           <div className="content profilePick">
-            <Button onClick={() => setShowModal(false)}>
+            <Button onClick={() => changeModalState(false)}>
               <CloseIcon />
             </Button>
             <Image fluid={bigPicture.fluid} />
