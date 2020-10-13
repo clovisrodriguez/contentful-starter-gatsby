@@ -50,7 +50,7 @@ export default function Footer() {
       <Toolbar className="toolBar">
         <Typography variant="body1">312 365 7458 - 311 260 6786</Typography>
         <Typography variant="body1">
-          Cll 26 # 68c-61, Edificio torre central, oficina 22
+          Cll 26 # 68c-61, Edificio torre central, oficina 322
         </Typography>
         <Typography variant="body1">
           ®Enciso Montero todos los derechos reservados
