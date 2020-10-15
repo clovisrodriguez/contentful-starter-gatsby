@@ -20,15 +20,14 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Enciso Montero Asociados',
-    description:
-      'Compañia especializada en consultoría legal y tecnológica',
+    description: 'Compañia especializada en consultoría legal y tecnológica',
     siteUrl: 'https://encisomontero.com/',
     image: '/images/share.jpg',
     menuLinks: [
       {
         name: 'Home',
         slug: '/',
-      }
+      },
     ],
     basePath: '/',
   },
@@ -80,6 +79,15 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -92,7 +100,7 @@ module.exports = {
         styles: path.join(__dirname, 'src/styles'),
         templates: path.join(__dirname, 'src/templates'),
         utils: path.join(__dirname, 'src/utils'),
-      }
+      },
     },
   ],
 }

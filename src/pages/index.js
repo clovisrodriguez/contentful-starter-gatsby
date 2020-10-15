@@ -56,11 +56,12 @@ const Home = ({ data }) => {
   const associates = _.get(data, 'allContentfulAssociate.edges')
   const teamRef = useRef()
   return (
-    <Layout {...{teamRef}}>
+    <Layout {...{ teamRef }}>
       <Hero {...{ content: homePage }} />
       <Description>
         <Typography
           variant="body1"
+          component="div"
           className="paragraph"
           dangerouslySetInnerHTML={{
             __html: homePage.bodyDescription.childMarkdownRemark.html,

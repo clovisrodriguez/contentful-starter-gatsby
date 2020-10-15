@@ -62,7 +62,6 @@ export default function Team({ associates, homePage }) {
     if (!showModal) {
       document.body.style.top = `-${window.scrollY}px`
       document.body.style.position = 'fixed'
-      console.log(window.scrollY)
     } else {
       document.body.style.position = ''
       document.body.style.top = ''
@@ -77,6 +76,7 @@ export default function Team({ associates, homePage }) {
           </Typography>
         <Typography
           variant="body1"
+          component="div"
           dangerouslySetInnerHTML={{
             __html: description.childMarkdownRemark.html,
           }}
@@ -90,6 +90,7 @@ export default function Team({ associates, homePage }) {
           renderIndicator={false}
           infiniteLoop
           centerMode
+          showThumbs={false}
           centerSlidePercentage={100}
         >
           {associates.map(({ node: associate }) => (

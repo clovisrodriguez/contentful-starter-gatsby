@@ -1,1 +1,1 @@
-exports.createPages = require('./src/gatsby/createPages')
+// exports.createPages = require('./src/gatsby/createPages')

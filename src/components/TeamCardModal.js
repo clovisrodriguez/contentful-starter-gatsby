@@ -113,6 +113,7 @@ export default function TeamCardModal({
             <Typography
               variant="body1"
               className="paragraph"
+              component="div"
               dangerouslySetInnerHTML={{
                 __html: biography.childMarkdownRemark.html,
               }}
